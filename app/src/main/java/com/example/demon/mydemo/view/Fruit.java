@@ -7,7 +7,7 @@ package com.example.demon.mydemo.view;
 
 public class Fruit {
     private String name;    //水果名
-    private int imageId;    //资源id
+    private int imageId;    //图片资源id
 
     public Fruit(String name, int imageId) {
         this.name = name;

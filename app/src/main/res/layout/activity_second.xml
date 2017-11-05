@@ -6,39 +6,65 @@
     android:layout_height="match_parent"
     android:padding="5dp">
 
-    <TextView
-        android:text="这是第二个活动"
-        android:gravity="center"
-        android:layout_gravity="left|top"
-        app:layout_widthPercent="49%"
-        app:layout_heightPercent="30%"/>
-
     <Button
-        android:id="@+id/finishActivityBt"
-        android:layout_gravity="right|top"
+        android:id="@+id/finish_activity_bt"
+        android:layout_gravity="left|top"
         android:background="@color/colorAccent"
         android:text="销毁所有活动"
-        android:textColor="?attr/editTextColor"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="18sp"
-        app:layout_widthPercent="49%"
-        app:layout_heightPercent="30%"/>
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="49%"/>
 
-    <Button
-        android:id="@+id/button1"
+    <LinearLayout
+        android:layout_gravity="right|top"
+        android:background="@android:color/holo_green_light"
+        android:orientation="vertical"
+        app:layout_widthPercent="49%"
+        app:layout_heightPercent="30%">
+
+        <Button
+            android:id="@+id/list_view_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ListView"
+            android:layout_margin="5dp"
+            android:background="@color/colorPrimary"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/recycler_view_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RecyclerView"
+            android:layout_margin="5dp"
+            android:textAllCaps="false"
+            android:background="@android:color/holo_blue_light"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_gravity="left|center"
         android:background="@color/colorPrimary"
-        android:text="打开ListView试例"
-        android:textAllCaps="false"
         app:layout_widthPercent="49%"
-        app:layout_heightPercent="30%"/>
+        app:layout_heightPercent="30%">
 
-    <Button
-        android:id="@+id/button2"
-        android:text="RecyclerView"
+        <Button
+            android:id="@+id/chat_bt"
+            android:text="聊天"
+            android:layout_margin="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_gravity="right|center"
         android:background="@android:color/holo_blue_light"
         app:layout_widthPercent="49%"
-        app:layout_heightPercent="30%"/>
+        app:layout_heightPercent="30%">
+
+
+    </LinearLayout>
 
     <!--模仿聊天输入框-->
     <LinearLayout

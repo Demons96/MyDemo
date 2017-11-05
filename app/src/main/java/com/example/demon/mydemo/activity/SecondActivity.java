@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.demon.mydemo.R;
+import com.example.demon.mydemo.chat.ChatView;
 import com.example.demon.mydemo.util.BaseActivity;
 import com.example.demon.mydemo.view.ListViewTest;
 import com.example.demon.mydemo.view.RecyclerViewTest;
@@ -18,24 +19,29 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        findViewById(R.id.finishActivityBt).setOnClickListener(this);
-        findViewById(R.id.button1).setOnClickListener(this);
-        findViewById(R.id.button2).setOnClickListener(this);
+        findViewById(R.id.finish_activity_bt).setOnClickListener(this);
+        findViewById(R.id.list_view_bt).setOnClickListener(this);
+        findViewById(R.id.recycler_view_bt).setOnClickListener(this);
+        findViewById(R.id.chat_bt).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.finishActivityBt:
+            case R.id.finish_activity_bt:
                 finishAllActivity(SecondActivity.this);     //弹出强制退出提示框
                 break;
-            case R.id.button1:
+            case R.id.list_view_bt:
                 Intent intent1 = new Intent(SecondActivity.this, ListViewTest.class);
                 startActivity(intent1);
                 break;
-            case R.id.button2:
+            case R.id.recycler_view_bt:
                 Intent intent2 = new Intent(SecondActivity.this, RecyclerViewTest.class);
                 startActivity(intent2);
+                break;
+            case R.id.chat_bt:
+                Intent intent3 = new Intent(SecondActivity.this, ChatView.class);
+                startActivity(intent3);
                 break;
             default:
                 break;

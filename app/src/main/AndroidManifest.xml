@@ -21,11 +21,17 @@
             android:label=""
             android:theme="@style/Theme.AppCompat.Dialog">
         </activity>
-        <activity android:name=".activity.SecondActivity">
+        <activity
+            android:name=".activity.SecondActivity"
+            android:label="这是第二个活动">
         </activity>
         <activity android:name=".view.ListViewTest">
         </activity>
         <activity android:name=".view.RecyclerViewTest">
+        </activity>
+        <activity
+            android:name=".chat.ChatView"
+            android:label="Chat">
         </activity>
     </application>
 
