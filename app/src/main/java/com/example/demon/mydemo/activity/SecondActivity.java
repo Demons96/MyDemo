@@ -1,0 +1,68 @@
+package com.example.demon.mydemo.activity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+
+import com.example.demon.mydemo.R;
+import com.example.demon.mydemo.util.BaseActivity;
+import com.example.demon.mydemo.view.ListViewTest;
+import com.example.demon.mydemo.view.RecyclerViewTest;
+
+public class SecondActivity extends BaseActivity implements View.OnClickListener {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        findViewById(R.id.finishActivityBt).setOnClickListener(this);
+        findViewById(R.id.button1).setOnClickListener(this);
+        findViewById(R.id.button2).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.finishActivityBt:
+                finishAllActivity(SecondActivity.this);     //弹出强制退出提示框
+                break;
+            case R.id.button1:
+                Intent intent1 = new Intent(SecondActivity.this, ListViewTest.class);
+                startActivity(intent1);
+                break;
+            case R.id.button2:
+                Intent intent2 = new Intent(SecondActivity.this, RecyclerViewTest.class);
+                startActivity(intent2);
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * 创建Menu
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    // 设置Menu的监听事件
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.add_item:
+                Toast.makeText(this, "添加啦", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.remove_item:
+                Toast.makeText(this, "移除啦", Toast.LENGTH_SHORT).show();
+                finish();
+                break;
+        }
+        return true;
+    }
+}
