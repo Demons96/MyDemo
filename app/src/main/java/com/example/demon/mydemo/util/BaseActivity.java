@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Toast;
 
 /**
@@ -25,8 +24,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Log.d(TAG, getClass().getSimpleName());     //打印当前活动的名称
+        LogUtil.d(TAG, getClass().getSimpleName());     //打印当前活动的名称
 
         ActivityCollector.addActivity(this);    //向活动管理器添加活动
     }

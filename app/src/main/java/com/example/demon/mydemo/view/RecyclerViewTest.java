@@ -1,18 +1,18 @@
 package com.example.demon.mydemo.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.example.demon.mydemo.R;
+import com.example.demon.mydemo.util.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class RecyclerViewTest extends AppCompatActivity {
+public class RecyclerViewTest extends BaseActivity {
     private List<Fruit> fruitList = new ArrayList<>();
 
     @Override

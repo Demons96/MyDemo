@@ -45,13 +45,25 @@
     <LinearLayout
         android:layout_gravity="left|center"
         android:background="@color/colorPrimary"
+        android:orientation="vertical"
         app:layout_widthPercent="49%"
         app:layout_heightPercent="30%">
 
         <Button
             android:id="@+id/chat_bt"
             android:text="聊天"
-            android:layout_margin="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/fragment_bt"
+            android:text="碎片"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/news_fragment_bt"
+            android:text="新闻"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

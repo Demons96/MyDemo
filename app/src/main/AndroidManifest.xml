@@ -33,6 +33,12 @@
             android:name=".chat.ChatView"
             android:label="Chat">
         </activity>
+        <activity android:name=".fragment.FragmentMain">
+        </activity>
+        <activity android:name=".fragment.NewsContentActivity">
+        </activity>
+        <activity android:name=".fragment.NewsMainActivity">
+        </activity>
     </application>
 
 </manifest>

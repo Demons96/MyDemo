@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--这个是聊天消息子项的布局-->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -15,8 +16,10 @@
         android:layout_margin="3dp"
         android:layout_gravity="left">
 
+        <!--写不写默认头像都行初始化代码里也有-->
         <ImageView
             android:id="@+id/left_msg_image"
+            android:src="@mipmap/ic_launcher_round"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

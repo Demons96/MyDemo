@@ -1,6 +1,5 @@
 package com.example.demon.mydemo.chat;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,11 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.demon.mydemo.R;
+import com.example.demon.mydemo.util.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChatView extends AppCompatActivity {
+/**
+ * 聊天活动类
+ */
+public class ChatView extends BaseActivity {
     private List<Msg> msgList = new ArrayList<Msg>();
     private RecyclerView msgRecyclerView;  //聊天列表
     private EditText inputText;   //输入框

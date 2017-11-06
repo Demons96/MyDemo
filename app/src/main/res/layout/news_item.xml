@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--新闻标题子项的布局-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/news_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp"
+        android:textSize="18sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#86eded"/>
+
+</LinearLayout>
+
+
+    <!--android:singleLine="true"：只能单行显示-->
+    <!--padding:给控件的周围加上补白-->
+    <!--ellipsize="end"：当前文本超出控件宽度时的缩略方式（尾部缩略）-->

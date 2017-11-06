@@ -1,7 +1,6 @@
 
 package com.example.demon.mydemo.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,11 +8,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.demon.mydemo.R;
+import com.example.demon.mydemo.util.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListViewTest extends AppCompatActivity {
+public class ListViewTest extends BaseActivity {
     private List<Fruit> fruitList = new ArrayList<Fruit>();
 
     @Override
