@@ -19,13 +19,13 @@
         android:paddingTop="15dp"
         android:textSize="18sp"/>
 
+    <!--子项之间的分割线-->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#86eded"/>
 
 </LinearLayout>
-
 
     <!--android:singleLine="true"：只能单行显示-->
     <!--padding:给控件的周围加上补白-->

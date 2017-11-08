@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.demon.mydemo">
 
+    <!-- 访问网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 开机广播权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -39,6 +44,39 @@
         </activity>
         <activity android:name=".fragment.NewsMainActivity">
         </activity>
+        <activity android:name=".broadcast.BroadcastMainActivity">
+        </activity>
+
+        <!--
+        在这个文件 注册静态广播
+        enabled:是否启动这个广播接收器
+        exported:是否允许这个广播接收器接受本程序以外的广播
+        -->
+        <receiver
+            android:name=".broadcast.BootCompleteReceiver"
+            android:enabled="false"
+            android:exported="true">
+            <!-- 加上需要注册的广播 -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <!--自定义广播接收器-->
+        <receiver
+            android:name=".broadcast.MyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <!--标准广播-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.example.demon.mydemo.broadcast.MY_BROADCAST"/>-->
+            <!--</intent-filter>-->
+
+            <!--有序广播-->
+            <intent-filter android:priority="100">
+                <action android:name="com.example.demon.mydemo.MY_BROADCAST"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

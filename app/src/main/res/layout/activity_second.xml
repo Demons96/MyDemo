@@ -75,6 +75,11 @@
         app:layout_widthPercent="49%"
         app:layout_heightPercent="30%">
 
+        <Button
+            android:id="@+id/broadcast_test_bt"
+            android:text="广播"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 

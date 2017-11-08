@@ -1,8 +1,11 @@
 package com.example.demon.mydemo.util;
 
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -19,7 +22,7 @@ import android.widget.Toast;
 @SuppressLint("Registered") //这是什么鬼
 public class BaseActivity extends AppCompatActivity {
     private static final String TAG = "BaseActivity";
-    protected AlertDialog.Builder finishAllActivityDialog = null;     // 错误提示框
+    private ForceOfflineReceiver forceOfflineReceiver = null;  // 强制下线广播
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,15 +32,43 @@ public class BaseActivity extends AppCompatActivity {
         ActivityCollector.addActivity(this);    //向活动管理器添加活动
     }
 
+    // 前台区开始注册强制下线广播
+    @Override
+    protected void onResume() {
+        super.onResume();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.example.demon.mydemo.FORCE_OFFLINE");
+        forceOfflineReceiver = new ForceOfflineReceiver();
+        registerReceiver(forceOfflineReceiver, intentFilter);
+    }
+
+    // 前台区结束注销强制下线广播
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (forceOfflineReceiver != null) {
+            unregisterReceiver(forceOfflineReceiver);
+            forceOfflineReceiver = null;
+        }
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         ActivityCollector.removeActivity(this);     //从活动管理器里面移除活动
     }
 
+    // 强制下线标准的广播
+    class ForceOfflineReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(final Context context, Intent intent) {
+            finishAllActivity(context);
+        }
+    }
+
     // 出现严重错误时提示退出
     public void finishAllActivity(final Context context) {
-        finishAllActivityDialog = new AlertDialog.Builder(context);
+        AlertDialog.Builder finishAllActivityDialog = new AlertDialog.Builder(context);
         finishAllActivityDialog.setTitle("警告！");
         finishAllActivityDialog.setMessage("出错啦，需强制退出。");
         finishAllActivityDialog.setCancelable(false);

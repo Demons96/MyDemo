@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.demon.mydemo.R;
+import com.example.demon.mydemo.broadcast.BroadcastMainActivity;
 import com.example.demon.mydemo.chat.ChatView;
 import com.example.demon.mydemo.fragment.FragmentMain;
 import com.example.demon.mydemo.fragment.NewsMainActivity;
@@ -27,6 +28,7 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
         findViewById(R.id.chat_bt).setOnClickListener(this);
         findViewById(R.id.fragment_bt).setOnClickListener(this);
         findViewById(R.id.news_fragment_bt).setOnClickListener(this);
+        findViewById(R.id.broadcast_test_bt).setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +56,10 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
             case R.id.news_fragment_bt:
                 Intent intent5 = new Intent(SecondActivity.this, NewsMainActivity.class);
                 startActivity(intent5);
+                break;
+            case R.id.broadcast_test_bt:
+                Intent intent6 = new Intent(SecondActivity.this, BroadcastMainActivity.class);
+                startActivity(intent6);
                 break;
             default:
                 break;

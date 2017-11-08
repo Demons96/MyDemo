@@ -38,6 +38,7 @@
 
     </LinearLayout>
 
+    <!--左侧黑线，用作分割不同的碎片-->
     <View
         android:layout_width="1dp"
         android:layout_height="match_parent"
