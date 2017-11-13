@@ -17,7 +17,7 @@ public class FragmentMain extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_main);
+        setContentView(R.layout.fragment_main_activity);
 
         findViewById(R.id.fragment_left_bt).setOnClickListener(this); //调用静态碎片方法
 

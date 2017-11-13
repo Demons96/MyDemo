@@ -1,11 +1,12 @@
-package com.example.demon.mydemo.activity;
+package com.example.demon.mydemo;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.demon.mydemo.R;
+import com.example.demon.mydemo.activity.DialogActivity;
+import com.example.demon.mydemo.activity.SecondActivity;
 import com.example.demon.mydemo.util.BaseActivity;
 
 public class MainActivity extends BaseActivity {

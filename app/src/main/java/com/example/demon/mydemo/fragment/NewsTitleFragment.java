@@ -25,7 +25,7 @@ public class NewsTitleFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.news_title_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_news_title_fragment, container, false);
 
         RecyclerView newsTitleRecyclerView = (RecyclerView) view.findViewById(R.id.news_title_recycler_view);
 
@@ -88,7 +88,7 @@ public class NewsTitleFragment extends Fragment {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_item, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_news_item, parent, false);
             final ViewHolder holder = new ViewHolder(view);
 
             view.setOnClickListener(new View.OnClickListener() {

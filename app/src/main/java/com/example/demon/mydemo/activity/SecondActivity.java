@@ -9,9 +9,13 @@ import android.widget.Toast;
 
 import com.example.demon.mydemo.R;
 import com.example.demon.mydemo.broadcast.BroadcastMainActivity;
-import com.example.demon.mydemo.chat.ChatView;
+import com.example.demon.mydemo.chat.ChatViewActivity;
 import com.example.demon.mydemo.fragment.FragmentMain;
 import com.example.demon.mydemo.fragment.NewsMainActivity;
+import com.example.demon.mydemo.storage.DatabaseActivity;
+import com.example.demon.mydemo.storage.FileOutPutActivity;
+import com.example.demon.mydemo.storage.LitePalActivity;
+import com.example.demon.mydemo.storage.SharedPreferencesActivity;
 import com.example.demon.mydemo.util.BaseActivity;
 import com.example.demon.mydemo.view.ListViewTest;
 import com.example.demon.mydemo.view.RecyclerViewTest;
@@ -29,6 +33,11 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
         findViewById(R.id.fragment_bt).setOnClickListener(this);
         findViewById(R.id.news_fragment_bt).setOnClickListener(this);
         findViewById(R.id.broadcast_test_bt).setOnClickListener(this);
+        findViewById(R.id.file_output_bt).setOnClickListener(this);
+        findViewById(R.id.shared_preferences_bt).setOnClickListener(this);
+        findViewById(R.id.database_bt).setOnClickListener(this);
+        findViewById(R.id.database_lite_pal_bt).setOnClickListener(this);
+
     }
 
     @Override
@@ -46,7 +55,7 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
                 startActivity(intent2);
                 break;
             case R.id.chat_bt:
-                Intent intent3 = new Intent(SecondActivity.this, ChatView.class);
+                Intent intent3 = new Intent(SecondActivity.this, ChatViewActivity.class);
                 startActivity(intent3);
                 break;
             case R.id.fragment_bt:
@@ -61,6 +70,23 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
                 Intent intent6 = new Intent(SecondActivity.this, BroadcastMainActivity.class);
                 startActivity(intent6);
                 break;
+            case R.id.file_output_bt:
+                Intent intent7 = new Intent(SecondActivity.this, FileOutPutActivity.class);
+                startActivity(intent7);
+                break;
+            case R.id.shared_preferences_bt:
+                Intent intent8 = new Intent(SecondActivity.this, SharedPreferencesActivity.class);
+                startActivity(intent8);
+                break;
+            case R.id.database_bt:
+                Intent intent9 = new Intent(SecondActivity.this, DatabaseActivity.class);
+                startActivity(intent9);
+                break;
+            case R.id.database_lite_pal_bt:
+                Intent intent10 = new Intent(SecondActivity.this, LitePalActivity.class);
+                startActivity(intent10);
+                break;
+
             default:
                 break;
         }

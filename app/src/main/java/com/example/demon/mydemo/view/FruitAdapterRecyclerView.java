@@ -43,8 +43,8 @@ public class FruitAdapterRecyclerView extends RecyclerView.Adapter<FruitAdapterR
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fruit_item_recycler_view_vertical, parent, false); //水平
-//                .inflate(R.layout.fruit_item_recycler_view_horizontal, parent, false);    //垂直
+                .inflate(R.layout.view_fruit_item_recycler_view_vertical, parent, false);  //垂直
+//                .inflate(R.layout.view_fruit_item_recycler_view_horizontal, parent, false); //水平
         final ViewHolder holder = new ViewHolder(view);
 
         // 设置整个子View的监听事件

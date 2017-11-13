@@ -1,7 +1,6 @@
 package com.example.demon.mydemo.view;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
@@ -18,7 +17,7 @@ public class RecyclerViewTest extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler_view_test);
+        setContentView(R.layout.view_recycler_view_test_activity);
         initFruits();   //初始化水果数据
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         /**
@@ -38,6 +37,7 @@ public class RecyclerViewTest extends BaseActivity {
                 StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
 //        */ //2
+
         FruitAdapterRecyclerView adapter = new FruitAdapterRecyclerView(fruitList);
         recyclerView.setAdapter(adapter);
     }

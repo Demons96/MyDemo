@@ -10,6 +10,6 @@ public class NewsMainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_main);
+        setContentView(R.layout.fragment_news_main_activity);
     }
 }

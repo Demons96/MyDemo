@@ -53,7 +53,7 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.msg_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_msg_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
 
         holder.chatView.setOnClickListener(new View.OnClickListener() {

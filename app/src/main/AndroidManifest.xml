@@ -8,13 +8,14 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
+        android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -35,7 +36,7 @@
         <activity android:name=".view.RecyclerViewTest">
         </activity>
         <activity
-            android:name=".chat.ChatView"
+            android:name=".chat.ChatViewActivity"
             android:label="Chat">
         </activity>
         <activity android:name=".fragment.FragmentMain">
@@ -56,27 +57,39 @@
             android:name=".broadcast.BootCompleteReceiver"
             android:enabled="false"
             android:exported="true">
+
             <!-- 加上需要注册的广播 -->
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
 
-        <!--自定义广播接收器-->
+        <!-- 自定义广播接收器 -->
         <receiver
             android:name=".broadcast.MyBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
-            <!--标准广播-->
-            <!--<intent-filter>-->
-                <!--<action android:name="com.example.demon.mydemo.broadcast.MY_BROADCAST"/>-->
-            <!--</intent-filter>-->
 
-            <!--有序广播-->
+            <!-- 标准广播 -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="com.example.demon.mydemo.broadcast.MY_BROADCAST"/> -->
+            <!-- </intent-filter> -->
+
+
+            <!-- 有序广播 -->
             <intent-filter android:priority="100">
                 <action android:name="com.example.demon.mydemo.MY_BROADCAST"/>
             </intent-filter>
         </receiver>
+
+        <activity android:name=".storage.FileOutPutActivity">
+        </activity>
+        <activity android:name=".storage.SharedPreferencesActivity">
+        </activity>
+        <activity android:name=".storage.DatabaseActivity">
+        </activity>
+        <activity android:name=".storage.LitePalActivity">
+        </activity>
     </application>
 
 </manifest>

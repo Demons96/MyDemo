@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * 聊天活动类
  */
-public class ChatView extends BaseActivity {
+public class ChatViewActivity extends BaseActivity {
     private List<Msg> msgList = new ArrayList<Msg>();
     private RecyclerView msgRecyclerView;  //聊天列表
     private EditText inputText;   //输入框
@@ -26,7 +26,7 @@ public class ChatView extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat_view);
+        setContentView(R.layout.chat_view_activity);
         initMsgs(); // 初始化消息数据
 
         msgRecyclerView = (RecyclerView) findViewById(R.id.msg_recycler_view);

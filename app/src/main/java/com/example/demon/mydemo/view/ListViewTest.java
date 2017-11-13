@@ -19,9 +19,9 @@ public class ListViewTest extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_view_test);
+        setContentView(R.layout.view_list_view_test_activity);
         initFruits(); // 初始化水果数据
-        FruitAdapterListView adapter = new FruitAdapterListView(ListViewTest.this, R.layout.fruit_item_list_view, fruitList);
+        FruitAdapterListView adapter = new FruitAdapterListView(ListViewTest.this, R.layout.view_fruit_item_list_view, fruitList);
         ListView listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

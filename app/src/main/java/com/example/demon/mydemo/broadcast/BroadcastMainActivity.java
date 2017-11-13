@@ -31,7 +31,7 @@ public class BroadcastMainActivity extends BaseActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_broadcast_main);
+        setContentView(R.layout.broadcast_main_activity);
 
         findViewById(R.id.add_network_broadcast_bt).setOnClickListener(this);   //打开网络监听广播
         findViewById(R.id.remove_network_broadcast_bt).setOnClickListener(this);//关闭网络监听广播
