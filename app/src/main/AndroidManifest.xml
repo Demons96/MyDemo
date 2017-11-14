@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!-- 开机广播权限 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <!-- 访问网络 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name="org.litepal.LitePalApplication"
@@ -89,6 +91,14 @@
         <activity android:name=".storage.DatabaseActivity">
         </activity>
         <activity android:name=".storage.LitePalActivity">
+        </activity>
+        <activity
+            android:label="浏览器"
+            android:name=".network.WebViewActivity">
+        </activity>
+        <activity
+            android:label="取得http响应"
+            android:name=".network.HttpActivity">
         </activity>
     </application>
 

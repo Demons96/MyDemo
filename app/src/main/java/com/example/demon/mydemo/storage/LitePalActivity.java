@@ -1,12 +1,12 @@
 package com.example.demon.mydemo.storage;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.demon.mydemo.R;
+import com.example.demon.mydemo.util.BaseActivity;
 import com.example.demon.mydemo.util.LogUtil;
 
 import org.litepal.crud.DataSupport;
@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * 用了开源的LitePal对象关系映射模式数据库
  */
-public class LitePalActivity extends AppCompatActivity implements View.OnClickListener {
+public class LitePalActivity extends BaseActivity implements View.OnClickListener {
     private TextView textView;
 
     @Override

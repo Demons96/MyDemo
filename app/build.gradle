@@ -26,6 +26,8 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.1.0' // RecyclerView
     implementation 'org.litepal.android:core:1.3.2'    //LitePal数据库
     compile 'com.android.support:percent:26.1.0'    // 百分比布局
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'  //OKHttp网络库
+    implementation 'com.google.code.gson:gson:2.8.0'    //gson解析json
 
     testImplementation 'junit:junit:4.12'       // 声明测试用例库
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

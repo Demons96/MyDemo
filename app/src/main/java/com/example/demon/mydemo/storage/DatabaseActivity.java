@@ -5,19 +5,19 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.demon.mydemo.R;
+import com.example.demon.mydemo.util.BaseActivity;
 import com.example.demon.mydemo.util.LogUtil;
 
 /**
  * 数据库的用法
  */
-public class DatabaseActivity extends AppCompatActivity implements View.OnClickListener {
+public class DatabaseActivity extends BaseActivity implements View.OnClickListener {
     private MyDatabaseHelper dbHelper = null;
     private TextView textView;  //显示数据库的数据
 

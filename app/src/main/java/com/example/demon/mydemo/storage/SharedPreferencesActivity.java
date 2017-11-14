@@ -2,12 +2,12 @@ package com.example.demon.mydemo.storage;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;    //3
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.demon.mydemo.R;
+import com.example.demon.mydemo.util.BaseActivity;
 import com.example.demon.mydemo.util.LogUtil;
 
 /**
@@ -17,7 +17,7 @@ import com.example.demon.mydemo.util.LogUtil;
  * 2:SharedPreferences.Editor editor = (SharedPreferences.Editor) getPreferences(MODE_PRIVATE);
  * 3:PreferenceManager.getDefaultSharedPreferences(Context参数如SharedPreferencesActivity.this);
  */
-public class SharedPreferencesActivity extends AppCompatActivity {
+public class SharedPreferencesActivity extends BaseActivity {
     TextView textView;
 
     @Override

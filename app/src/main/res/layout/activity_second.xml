@@ -104,6 +104,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <Button
+            android:id="@+id/web_view"
+            android:text="浏览器"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/http_connection_view"
+            android:textAllCaps="false"
+            android:text="Http"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 

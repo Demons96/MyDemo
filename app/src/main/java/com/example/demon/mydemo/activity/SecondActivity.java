@@ -12,6 +12,8 @@ import com.example.demon.mydemo.broadcast.BroadcastMainActivity;
 import com.example.demon.mydemo.chat.ChatViewActivity;
 import com.example.demon.mydemo.fragment.FragmentMain;
 import com.example.demon.mydemo.fragment.NewsMainActivity;
+import com.example.demon.mydemo.network.HttpActivity;
+import com.example.demon.mydemo.network.WebViewActivity;
 import com.example.demon.mydemo.storage.DatabaseActivity;
 import com.example.demon.mydemo.storage.FileOutPutActivity;
 import com.example.demon.mydemo.storage.LitePalActivity;
@@ -37,6 +39,8 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
         findViewById(R.id.shared_preferences_bt).setOnClickListener(this);
         findViewById(R.id.database_bt).setOnClickListener(this);
         findViewById(R.id.database_lite_pal_bt).setOnClickListener(this);
+        findViewById(R.id.web_view).setOnClickListener(this);
+        findViewById(R.id.http_connection_view).setOnClickListener(this);
 
     }
 
@@ -85,6 +89,14 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
             case R.id.database_lite_pal_bt:
                 Intent intent10 = new Intent(SecondActivity.this, LitePalActivity.class);
                 startActivity(intent10);
+                break;
+            case R.id.web_view:
+                Intent intent11 = new Intent(SecondActivity.this, WebViewActivity.class);
+                startActivity(intent11);
+                break;
+            case R.id.http_connection_view:
+                Intent intent12 = new Intent(SecondActivity.this, HttpActivity.class);
+                startActivity(intent12);
                 break;
 
             default:

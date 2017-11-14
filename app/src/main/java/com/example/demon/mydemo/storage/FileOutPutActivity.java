@@ -1,13 +1,13 @@
 package com.example.demon.mydemo.storage;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.demon.mydemo.R;
+import com.example.demon.mydemo.util.BaseActivity;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,7 +22,7 @@ import java.io.OutputStreamWriter;
  * 退出时将文本输入框的内容保存到本地data文件中
  * 下次启动时再将其显示出来
  */
-public class FileOutPutActivity extends AppCompatActivity {
+public class FileOutPutActivity extends BaseActivity {
     private EditText edit;
 
     @Override
