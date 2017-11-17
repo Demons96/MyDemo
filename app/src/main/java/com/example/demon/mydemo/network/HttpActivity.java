@@ -1,14 +1,13 @@
 package com.example.demon.mydemo.network;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.demon.mydemo.R;
 import com.example.demon.mydemo.util.BaseActivity;
+import com.example.demon.mydemo.util.HttpUtil;
 import com.example.demon.mydemo.util.LogUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -34,6 +33,7 @@ import java.util.List;
 
 import javax.xml.parsers.SAXParserFactory;
 
+import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -42,11 +42,12 @@ import okhttp3.Response;
  * 使用HttpURLConnection获取请求的数据
  */
 public class HttpActivity extends BaseActivity implements View.OnClickListener {
+    private static final String TAG = "HttpActivity";
     private static String XMLDATAURL = "http://123.206.23.219/Android/XML/get-data.xml";
     private static String JSONDATAURL = "http://123.206.23.219/Android/JSON/get-data.json";
     private EditText editText;
     private TextView textView;
-    private int selectBt;       //选择按钮
+//    private int selectBt;       //选择解析类型按钮
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +71,7 @@ public class HttpActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         textView.setText("加载中...\n");
-        selectBt = view.getId();
+//        selectBt = view.getId();
 
         switch (view.getId()) {
             case R.id.http_connection_bt:
@@ -84,18 +85,62 @@ public class HttpActivity extends BaseActivity implements View.OnClickListener {
 
             case R.id.xml_pull_bt:
                 // 放入需要解析的xml数据地址
-                sendRequestWithOkHttp(XMLDATAURL);
+//                sendRequestWithOkHttp(XMLDATAURL);
+                HttpUtil.sendHttpRequest(XMLDATAURL, new HttpUtil.HttpCallbackListener() {
+                    @Override
+                    public void onFinish(String response) {
+                        parseXMLWithPull(response);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+                });
                 break;
             case R.id.xml_sax_bt:
-                sendRequestWithOkHttp(XMLDATAURL);
+//                sendRequestWithOkHttp(XMLDATAURL);
+                HttpUtil.sendOkHttpRequest(XMLDATAURL, new okhttp3.Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        parseXMLWithSAX(response.body().string());
+                    }
+                });
                 break;
 
             case R.id.json_object_bt:
                 // 放入需要解析的json数据地址
-                sendRequestWithOkHttp(JSONDATAURL);
+//                sendRequestWithOkHttp(JSONDATAURL);
+                HttpUtil.sendHttpRequest(JSONDATAURL, new HttpUtil.HttpCallbackListener() {
+                    @Override
+                    public void onFinish(String response) {
+                        parseJSONWithJSONObject(response);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+                });
                 break;
             case R.id.gson_bt:
-                sendRequestWithOkHttp(JSONDATAURL);
+//                sendRequestWithOkHttp(JSONDATAURL);
+                HttpUtil.sendOkHttpRequest(JSONDATAURL, new okhttp3.Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        parseJSONWithGSON(response.body().string());
+                    }
+                });
                 break;
 
         }
@@ -142,7 +187,7 @@ public class HttpActivity extends BaseActivity implements View.OnClickListener {
         }).start();
     }
 
-    // 使用OkHttp获取响应报文
+    // 使用OkHttp获取响应报文,一般使用这个
     private void sendRequestWithOkHttp(final String requestUrl) {
         new Thread(new Runnable() {
             @Override
@@ -155,27 +200,26 @@ public class HttpActivity extends BaseActivity implements View.OnClickListener {
                             .build();
                     Response response = client.newCall(request).execute();
                     String responseData = response.body().string();
-                    switch (selectBt) {  //选择解析方式
-                        case R.id.http_connection_bt:
-                            showResponse(responseData);
-                            break;
-                        case R.id.ok_http_bt:
-                            showResponse(responseData);
-                            break;
-                        case R.id.xml_pull_bt:
-                            parseXMLWithPull(responseData);
-                            break;
-                        case R.id.xml_sax_bt:
-                            parseXMLWithSAX(responseData);
-                            break;
-                        case R.id.json_object_bt:
-                            parseJSONWithJSONObject(responseData);
-                            break;
-                        case R.id.gson_bt:
-                            parseJSONWithGSON(responseData);
-                            break;
+                    showResponse(responseData);
 
-                    }
+//                    switch (selectBt) {  //选择解析方式
+//                        case R.id.ok_http_bt:
+//                            showResponse(responseData);
+//                            break;
+//                        case R.id.xml_pull_bt:
+//                            parseXMLWithPull(responseData);
+//                            break;
+//                        case R.id.xml_sax_bt:
+//                            parseXMLWithSAX(responseData);
+//                            break;
+//                        case R.id.json_object_bt:
+//                            parseJSONWithJSONObject(responseData);
+//                            break;
+//                        case R.id.gson_bt:
+//                            parseJSONWithGSON(responseData);
+//                            break;
+//
+//                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -240,9 +284,9 @@ public class HttpActivity extends BaseActivity implements View.OnClickListener {
                                     textView.append("name is： " + name + "\n");
                                     textView.append("version is： " + version + "\n\n");
 
-                                    LogUtil.d("MainActivity", "id is： " + id);
-                                    LogUtil.d("MainActivity", "name is： " + name);
-                                    LogUtil.d("MainActivity", "version is： " + version);
+                                    LogUtil.d(TAG, "id is： " + id);
+                                    LogUtil.d(TAG, "name is： " + name);
+                                    LogUtil.d(TAG, "version is： " + version);
                                 }
                                 break;
                             }
@@ -286,12 +330,6 @@ public class HttpActivity extends BaseActivity implements View.OnClickListener {
             id = new StringBuilder();
             name = new StringBuilder();
             version = new StringBuilder();
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    textView.setText("XMLWithSAX\n\n");
-                }
-            });
         }
 
         // 开始解析某个节点
@@ -330,9 +368,9 @@ public class HttpActivity extends BaseActivity implements View.OnClickListener {
         @Override
         public void endElement(String uri, final String localName, String qName) throws SAXException {
             if ("app".equals(localName)) {
-//                LogUtil.d("ContentHandler", "id is： " + id.toString().trim());
-//                LogUtil.d("ContentHandler", "name is： " + name.toString().trim());
-//                LogUtil.d("ContentHandler", "version is： " + version.toString().trim());
+                LogUtil.d(TAG, "id is： " + id.toString().trim());
+                LogUtil.d(TAG, "name is： " + name.toString().trim());
+                LogUtil.d(TAG, "version is： " + version.toString().trim());
 
                 // 最后要将StringBuilder清空掉
 //                id.setLength(0);
@@ -348,6 +386,7 @@ public class HttpActivity extends BaseActivity implements View.OnClickListener {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    textView.setText("XMLWithSAX\n\n");
                     textView.append("id is： \n" + id.toString().trim() + "\n");
                     textView.append("name is： \n" + name.toString().trim() + "\n");
                     textView.append("version is： \n" + version.toString().trim() + "\n\n");
@@ -375,9 +414,9 @@ public class HttpActivity extends BaseActivity implements View.OnClickListener {
                         textView.append("name is: " + name + "\n");
                         textView.append("version is: " + version + "\n\n");
 
-                        LogUtil.d("MainActivity", "id is: " + id);
-                        LogUtil.d("MainActivity", "name is: " + name);
-                        LogUtil.d("MainActivity", "version is: " + version);
+                        LogUtil.d(TAG, "id is: " + id);
+                        LogUtil.d(TAG, "name is: " + name);
+                        LogUtil.d(TAG, "version is: " + version);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -434,9 +473,9 @@ public class HttpActivity extends BaseActivity implements View.OnClickListener {
                     textView.append("name is: " + app.getName() + "\n");
                     textView.append("version is: " + app.getVersion() + "\n\n");
 
-                    LogUtil.d("MainActivity", "id is: " + app.getId());
-                    LogUtil.d("MainActivity", "name is: " + app.getName());
-                    LogUtil.d("MainActivity", "version is: " + app.getVersion());
+                    LogUtil.d(TAG, "id is: " + app.getId());
+                    LogUtil.d(TAG, "name is: " + app.getName());
+                    LogUtil.d(TAG, "version is: " + app.getVersion());
                 }
             }
         });

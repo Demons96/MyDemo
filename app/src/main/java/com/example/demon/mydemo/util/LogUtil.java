@@ -15,7 +15,7 @@ public class LogUtil {
     private static final int ERROR = 5;     //错误信息
     private static final int NOTHING = 6;   //什么都不打印
 
-    private static int level = DEBUG;      //当前程序的显示级别
+    private static int level = VERBOSE;      //当前程序的显示级别
 
     public static void v(String tag, String msg) {
         if (level <= VERBOSE) {

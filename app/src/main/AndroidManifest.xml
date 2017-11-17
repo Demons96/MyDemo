@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <!-- 访问网络 -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 访问SD卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name="org.litepal.LitePalApplication"
@@ -51,7 +53,7 @@
         </activity>
 
         <!--
-        在这个文件 注册静态广播
+        在这个文件 注册静态开机广播
         enabled:是否启动这个广播接收器
         exported:是否允许这个广播接收器接受本程序以外的广播
         -->
@@ -93,12 +95,33 @@
         <activity android:name=".storage.LitePalActivity">
         </activity>
         <activity
-            android:label="浏览器"
-            android:name=".network.WebViewActivity">
+            android:name=".network.WebViewActivity"
+            android:label="浏览器">
         </activity>
         <activity
-            android:label="取得http响应"
-            android:name=".network.HttpActivity">
+            android:name=".network.HttpActivity"
+            android:label="取得http响应">
+        </activity>
+        <activity android:name=".ThreadUpdataUi.ThreadUpdateUiMainActivity">
+        </activity>
+
+        <service
+            android:name=".service.ServiceTest"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <service android:name=".service.IntentServiceTest"/>
+
+        <activity android:name=".service.ServiceTextActivity">
+        </activity>
+
+        <service
+            android:name=".service.DownloadService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+        <activity android:name=".service.DownloadActivity">
         </activity>
     </application>
 

@@ -13,7 +13,7 @@
         android:background="@color/colorAccent"
         android:text="销毁所有活动"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="18sp"
+        android:textSize="26sp"
         app:layout_heightPercent="19%"
         app:layout_widthPercent="49%"/>
 
@@ -105,19 +105,48 @@
             android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/web_view"
+            android:id="@+id/web_bt"
             android:text="浏览器"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/http_connection_view"
+            android:id="@+id/http_connection_bt"
             android:textAllCaps="false"
             android:text="Http"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <Button
+            android:id="@+id/thread_update_ui_bt"
+            android:text="子线程中更新UI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/service_test_bt"
+            android:text="服务"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_gravity="left|bottom"
+        android:background="@android:color/holo_purple"
+        android:orientation="vertical"
+        app:layout_widthPercent="49%"
+        app:layout_heightPercent="19%">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="right|bottom"
+        android:background="@android:color/holo_orange_dark"
+        android:orientation="vertical"
+        app:layout_widthPercent="49%"
+        app:layout_heightPercent="19%">
+
+    </LinearLayout>
 
 </android.support.percent.PercentFrameLayout>
