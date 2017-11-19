@@ -11,11 +11,11 @@ import com.example.demon.mydemo.R;
 import com.example.demon.mydemo.ThreadUpdataUi.ThreadUpdateUiMainActivity;
 import com.example.demon.mydemo.broadcast.BroadcastMainActivity;
 import com.example.demon.mydemo.chat.ChatViewActivity;
+import com.example.demon.mydemo.contentProvider.ContentTestActivity;
 import com.example.demon.mydemo.fragment.FragmentMain;
 import com.example.demon.mydemo.fragment.NewsMainActivity;
 import com.example.demon.mydemo.network.HttpActivity;
 import com.example.demon.mydemo.network.WebViewActivity;
-import com.example.demon.mydemo.service.ServiceTest;
 import com.example.demon.mydemo.service.ServiceTextActivity;
 import com.example.demon.mydemo.storage.DatabaseActivity;
 import com.example.demon.mydemo.storage.FileOutPutActivity;
@@ -46,6 +46,7 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
         findViewById(R.id.http_connection_bt).setOnClickListener(this);
         findViewById(R.id.thread_update_ui_bt).setOnClickListener(this);
         findViewById(R.id.service_test_bt).setOnClickListener(this);
+        findViewById(R.id.content_test_bt).setOnClickListener(this);
 
     }
 
@@ -96,6 +97,9 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
                 break;
             case R.id.service_test_bt:
                 MyStartActivity(ServiceTextActivity.class);
+                break;
+            case R.id.content_test_bt:
+                MyStartActivity(ContentTestActivity.class);
                 break;
 
             default:

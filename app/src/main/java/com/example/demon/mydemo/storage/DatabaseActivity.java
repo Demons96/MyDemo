@@ -18,6 +18,7 @@ import com.example.demon.mydemo.util.LogUtil;
  * 数据库的用法
  */
 public class DatabaseActivity extends BaseActivity implements View.OnClickListener {
+    public static final int VERSION = 2;
     private MyDatabaseHelper dbHelper = null;
     private TextView textView;  //显示数据库的数据
 
@@ -25,7 +26,7 @@ public class DatabaseActivity extends BaseActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.storage_database_activity);
-        dbHelper = new MyDatabaseHelper(this, "BookStore.db", null, 2);
+        dbHelper = new MyDatabaseHelper(this, "BookStore.db", null, DatabaseActivity.VERSION);
 
         textView = findViewById(R.id.database_tv);
 
@@ -114,7 +115,7 @@ public class DatabaseActivity extends BaseActivity implements View.OnClickListen
     }
 
     // 操作数据库的类
-    class MyDatabaseHelper extends SQLiteOpenHelper {
+    public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         // 书本表
         private static final String CREATE_BOOK = "create table Book ("
@@ -132,8 +133,8 @@ public class DatabaseActivity extends BaseActivity implements View.OnClickListen
 
         private Context mContext;
 
-        MyDatabaseHelper(Context context, String name,
-                         SQLiteDatabase.CursorFactory factory, int version) {
+        public MyDatabaseHelper(Context context, String name,
+                                SQLiteDatabase.CursorFactory factory, int version) {
             super(context, name, factory, version);
             mContext = context;
         }
@@ -143,7 +144,8 @@ public class DatabaseActivity extends BaseActivity implements View.OnClickListen
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(CREATE_BOOK);
             db.execSQL(CREATE_CATEGORY);
-            Toast.makeText(mContext, "Create succeeded", Toast.LENGTH_SHORT).show();
+            // 内容提供其使用了该数据库，取消弹窗
+//            Toast.makeText(mContext, "Create succeeded", Toast.LENGTH_SHORT).show();
         }
 
         // 升级数据库
