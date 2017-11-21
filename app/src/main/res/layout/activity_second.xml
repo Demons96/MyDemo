@@ -144,6 +144,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <Button
+            android:id="@+id/notification_bt"
+            android:text="通知"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -152,6 +158,12 @@
         android:orientation="vertical"
         app:layout_widthPercent="49%"
         app:layout_heightPercent="19%">
+
+        <Button
+            android:id="@+id/media_bt"
+            android:text="多媒体"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 

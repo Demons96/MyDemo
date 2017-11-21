@@ -139,6 +139,5 @@ public class DownloadService extends Service {
             stopForeground(true);
             Toast.makeText(DownloadService.this, "Canceled", Toast.LENGTH_SHORT).show();
         }
-
-    };
+    }
 }

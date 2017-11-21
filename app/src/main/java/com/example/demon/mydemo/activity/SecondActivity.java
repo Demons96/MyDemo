@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.demon.mydemo.Notification.NotificationTestActivity;
 import com.example.demon.mydemo.R;
 import com.example.demon.mydemo.ThreadUpdataUi.ThreadUpdateUiMainActivity;
 import com.example.demon.mydemo.broadcast.BroadcastMainActivity;
@@ -14,6 +15,7 @@ import com.example.demon.mydemo.chat.ChatViewActivity;
 import com.example.demon.mydemo.contentProvider.ContentTestActivity;
 import com.example.demon.mydemo.fragment.FragmentMain;
 import com.example.demon.mydemo.fragment.NewsMainActivity;
+import com.example.demon.mydemo.media.MediaTestActivity;
 import com.example.demon.mydemo.network.HttpActivity;
 import com.example.demon.mydemo.network.WebViewActivity;
 import com.example.demon.mydemo.service.ServiceTextActivity;
@@ -47,6 +49,8 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
         findViewById(R.id.thread_update_ui_bt).setOnClickListener(this);
         findViewById(R.id.service_test_bt).setOnClickListener(this);
         findViewById(R.id.content_test_bt).setOnClickListener(this);
+        findViewById(R.id.notification_bt).setOnClickListener(this);
+        findViewById(R.id.media_bt).setOnClickListener(this);
 
     }
 
@@ -100,6 +104,12 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
                 break;
             case R.id.content_test_bt:
                 MyStartActivity(ContentTestActivity.class);
+                break;
+            case R.id.notification_bt:
+                MyStartActivity(NotificationTestActivity.class);
+                break;
+            case R.id.media_bt:
+                MyStartActivity(MediaTestActivity.class);
                 break;
 
             default:

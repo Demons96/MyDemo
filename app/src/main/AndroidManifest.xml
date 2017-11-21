@@ -12,6 +12,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!-- 读取联系人 -->
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <!-- 震动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- 4.4之前访问SD卡要声明权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name="org.litepal.LitePalApplication"
@@ -134,6 +138,24 @@
             android:enabled="true"
             android:exported="true">
         </provider>
+
+        <activity android:name=".Notification.NotificationTestActivity">
+        </activity>
+        <activity android:name=".media.MediaTestActivity">
+        </activity>
+
+        <!-- 手动注册供拍照时存储照片的特殊内容提供器 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.demon.mydemo.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <!-- 指定url的共享路径 -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
 
 </manifest>
