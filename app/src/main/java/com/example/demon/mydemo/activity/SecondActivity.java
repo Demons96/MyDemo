@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.example.demon.mydemo.Notification.NotificationTestActivity;
 import com.example.demon.mydemo.R;
 import com.example.demon.mydemo.ThreadUpdataUi.ThreadUpdateUiMainActivity;
+import com.example.demon.mydemo.baidulocation.LocationTestActivity;
 import com.example.demon.mydemo.broadcast.BroadcastMainActivity;
 import com.example.demon.mydemo.chat.ChatViewActivity;
 import com.example.demon.mydemo.contentProvider.ContentTestActivity;
@@ -51,6 +52,7 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
         findViewById(R.id.content_test_bt).setOnClickListener(this);
         findViewById(R.id.notification_bt).setOnClickListener(this);
         findViewById(R.id.media_bt).setOnClickListener(this);
+        findViewById(R.id.location_test_bt).setOnClickListener(this);
 
     }
 
@@ -110,6 +112,9 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
                 break;
             case R.id.media_bt:
                 MyStartActivity(MediaTestActivity.class);
+                break;
+            case R.id.location_test_bt:
+                MyStartActivity(LocationTestActivity.class);
                 break;
 
             default:
