@@ -13,6 +13,9 @@ import com.example.demon.mydemo.util.BaseActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ListView的用法
+ */
 public class ListViewTest extends BaseActivity {
     private List<Fruit> fruitList = new ArrayList<Fruit>();
 
@@ -20,8 +23,12 @@ public class ListViewTest extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_list_view_test_activity);
+
         initFruits(); // 初始化水果数据
-        FruitAdapterListView adapter = new FruitAdapterListView(ListViewTest.this, R.layout.view_fruit_item_list_view, fruitList);
+
+        FruitAdapterListView adapter = new FruitAdapterListView(
+                ListViewTest.this, R.layout.view_fruit_item_list_view, fruitList);
+
         ListView listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * RecyclerView的用法
+ */
 public class RecyclerViewTest extends BaseActivity {
     private List<Fruit> fruitList = new ArrayList<>();
 
@@ -18,6 +21,7 @@ public class RecyclerViewTest extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_recycler_view_test_activity);
+
         initFruits();   //初始化水果数据
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         /**

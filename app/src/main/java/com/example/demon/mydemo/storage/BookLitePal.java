@@ -6,7 +6,6 @@ import org.litepal.crud.DataSupport;
  * Created by gyp52 on 17/11/12.
  * LitePal对象关系映射表的类Book
  */
-
 public class BookLitePal extends DataSupport {
     private int id;
     private String author;  //作者

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--列表的水平排列-->
+<!--列表的纵向排列-->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 实现滑动菜单的布局 需放任意两个子控件 -->
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 主界面显示的内容 -->
+    <!-- CoordinatorLayout(FrameLayout)监听所有子控件的事件并做出合理的响应 -->
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--设置AppBarLayout(垂直方向的LinearLayout)让标题在碎片布局中完整显示-->
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--layout_scrollFlags:scroll上滚隐藏enterAlways下滚显示snap滚一半显示一半-->
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        </android.support.design.widget.AppBarLayout>
+
+        <!-- 显示下拉刷新
+        方法二：使用AppBarLayout设置layout_behavior实现偏移
+        appbar_scrolling_view_behavior由Design库提供-->
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <!--显示主内容的RecyclerView
+            使用碎片布局时内容会挡住标题，解决办法之一设置偏移量
+            android:layout_marginTop="?attr/actionBarSize"-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <!-- 悬浮按钮
+        layout_gravity中的end表示自动判断在左还是右
+        app:elevation="8dp"设置悬浮的高度-->
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_done"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <!--Design Support提供的NavigationView滑动菜单控件
+    layout_gravity：left、right、start自动
+    headerLayout:头布局
+    menu:菜单项-->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/material_nav_header"
+        app:menu="@menu/nav_menu"/>
+
+</android.support.v4.widget.DrawerLayout>
+

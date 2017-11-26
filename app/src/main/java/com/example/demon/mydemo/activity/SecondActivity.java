@@ -16,6 +16,7 @@ import com.example.demon.mydemo.chat.ChatViewActivity;
 import com.example.demon.mydemo.contentProvider.ContentTestActivity;
 import com.example.demon.mydemo.fragment.FragmentMain;
 import com.example.demon.mydemo.fragment.NewsMainActivity;
+import com.example.demon.mydemo.materialDesign.MaterialDesignActivity;
 import com.example.demon.mydemo.media.MediaTestActivity;
 import com.example.demon.mydemo.network.HttpActivity;
 import com.example.demon.mydemo.network.WebViewActivity;
@@ -24,6 +25,7 @@ import com.example.demon.mydemo.storage.DatabaseActivity;
 import com.example.demon.mydemo.storage.FileOutPutActivity;
 import com.example.demon.mydemo.storage.LitePalActivity;
 import com.example.demon.mydemo.storage.SharedPreferencesActivity;
+import com.example.demon.mydemo.storage.StorageMainActivity;
 import com.example.demon.mydemo.util.BaseActivity;
 import com.example.demon.mydemo.view.ListViewTest;
 import com.example.demon.mydemo.view.RecyclerViewTest;
@@ -34,6 +36,7 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
         findViewById(R.id.finish_activity_bt).setOnClickListener(this);
         findViewById(R.id.list_view_bt).setOnClickListener(this);
         findViewById(R.id.recycler_view_bt).setOnClickListener(this);
@@ -41,10 +44,7 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
         findViewById(R.id.fragment_bt).setOnClickListener(this);
         findViewById(R.id.news_fragment_bt).setOnClickListener(this);
         findViewById(R.id.broadcast_test_bt).setOnClickListener(this);
-        findViewById(R.id.file_output_bt).setOnClickListener(this);
-        findViewById(R.id.shared_preferences_bt).setOnClickListener(this);
-        findViewById(R.id.database_bt).setOnClickListener(this);
-        findViewById(R.id.database_lite_pal_bt).setOnClickListener(this);
+        findViewById(R.id.storage_bt).setOnClickListener(this);
         findViewById(R.id.web_bt).setOnClickListener(this);
         findViewById(R.id.http_connection_bt).setOnClickListener(this);
         findViewById(R.id.thread_update_ui_bt).setOnClickListener(this);
@@ -53,6 +53,7 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
         findViewById(R.id.notification_bt).setOnClickListener(this);
         findViewById(R.id.media_bt).setOnClickListener(this);
         findViewById(R.id.location_test_bt).setOnClickListener(this);
+        findViewById(R.id.material_design_bt).setOnClickListener(this);
 
     }
 
@@ -80,17 +81,8 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
             case R.id.broadcast_test_bt:
                 MyStartActivity(BroadcastMainActivity.class);
                 break;
-            case R.id.file_output_bt:
-                MyStartActivity(FileOutPutActivity.class);
-                break;
-            case R.id.shared_preferences_bt:
-                MyStartActivity(SharedPreferencesActivity.class);
-                break;
-            case R.id.database_bt:
-                MyStartActivity(DatabaseActivity.class);
-                break;
-            case R.id.database_lite_pal_bt:
-                MyStartActivity(LitePalActivity.class);
+            case R.id.storage_bt:
+                MyStartActivity(StorageMainActivity.class);
                 break;
             case R.id.web_bt:
                 MyStartActivity(WebViewActivity.class);
@@ -115,6 +107,9 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
                 break;
             case R.id.location_test_bt:
                 MyStartActivity(LocationTestActivity.class);
+                break;
+            case R.id.material_design_bt:
+                MyStartActivity(MaterialDesignActivity.class);
                 break;
 
             default:

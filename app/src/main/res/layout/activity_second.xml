@@ -14,7 +14,7 @@
         android:text="销毁所有活动"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="26sp"
-        app:layout_heightPercent="19%"
+        app:layout_heightPercent="18%"
         app:layout_widthPercent="49%"/>
 
     <LinearLayout
@@ -22,7 +22,7 @@
         android:background="@android:color/holo_green_light"
         android:orientation="vertical"
         app:layout_widthPercent="49%"
-        app:layout_heightPercent="19%">
+        app:layout_heightPercent="18%">
 
         <Button
             android:id="@+id/list_view_bt"
@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:text="RecyclerView"
             android:textAllCaps="false"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -44,7 +45,7 @@
         android:background="@color/colorPrimary"
         android:orientation="vertical"
         app:layout_widthPercent="49%"
-        app:layout_heightPercent="60%">
+        app:layout_heightPercent="62%">
 
         <Button
             android:id="@+id/chat_bt"
@@ -71,36 +72,8 @@
             android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/file_output_bt"
-            android:text="文件存储"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/shared_preferences_bt"
-            android:text="键值对存储"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_gravity="right|center"
-        android:background="@android:color/holo_blue_light"
-        android:orientation="vertical"
-        app:layout_widthPercent="49%"
-        app:layout_heightPercent="60%">
-
-        <Button
-            android:id="@+id/database_bt"
-            android:text="数据库"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/database_lite_pal_bt"
-            android:textAllCaps="false"
-            android:text="数据库LitePal"
+            android:id="@+id/storage_bt"
+            android:text="存储"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -117,6 +90,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="right|center"
+        android:background="@android:color/holo_blue_light"
+        android:orientation="vertical"
+        app:layout_widthPercent="49%"
+        app:layout_heightPercent="62%">
+
         <Button
             android:id="@+id/thread_update_ui_bt"
             android:text="子线程中更新UI"
@@ -128,15 +110,6 @@
             android:text="服务"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_gravity="left|bottom"
-        android:background="@android:color/holo_purple"
-        android:orientation="vertical"
-        app:layout_widthPercent="49%"
-        app:layout_heightPercent="19%">
 
         <Button
             android:id="@+id/content_test_bt"
@@ -150,15 +123,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_gravity="right|bottom"
-        android:background="@android:color/holo_orange_dark"
-        android:orientation="vertical"
-        app:layout_widthPercent="49%"
-        app:layout_heightPercent="19%">
-
         <Button
             android:id="@+id/media_bt"
             android:text="多媒体"
@@ -170,6 +134,30 @@
             android:text="位置"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/material_design_bt"
+            android:text="界面设计"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="left|bottom"
+        android:background="@android:color/holo_purple"
+        android:orientation="vertical"
+        app:layout_widthPercent="49%"
+        app:layout_heightPercent="18%">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="right|bottom"
+        android:background="@android:color/holo_orange_dark"
+        android:orientation="vertical"
+        app:layout_widthPercent="49%"
+        app:layout_heightPercent="18%">
 
     </LinearLayout>
 

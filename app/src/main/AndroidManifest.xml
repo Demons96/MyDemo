@@ -178,6 +178,16 @@
 
         <activity android:name=".baidulocation.LocationTestActivity">
         </activity>
+        <activity android:name=".storage.StorageMainActivity">
+        </activity>
+        <activity
+            android:name=".materialDesign.MaterialDesignActivity"
+            android:label="标题栏显示内容">
+        </activity>
+        <activity
+            android:name=".materialDesign.FruitActivity"
+            android:theme="@style/FruitActivityTheme">
+        </activity>
     </application>
 
 </manifest>
