@@ -45,7 +45,7 @@ public class LocationTestActivity extends BaseActivity {
         mLocationClient.registerLocationListener(new MyLocationListener()); // 注册位置监听器
         SDKInitializer.initialize(getApplicationContext());     // 地图初始化
 
-        setContentView(R.layout.activity_location_test);
+        setContentView(R.layout.baidulocation_location_test_activity);
 
         positionText = (TextView) findViewById(R.id.position_text_view);
         positionText.setText("地图加载中...");

@@ -1,5 +1,10 @@
 package com.example.demon.mydemo.util;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,13 +22,16 @@ import okhttp3.Request;
  */
 
 public class HttpUtil {
-
     /**
      * @param address 请求地址
      * @param listener 自己实现的回掉接口。
      * HttpUrlConnection
      */
     public static void sendHttpRequest(final String address, final HttpCallbackListener listener) {
+        if(!isNetworkAvailable()){
+            Toast.makeText(MyApplication.getContext(), "无网络", Toast.LENGTH_SHORT).show();
+            return;
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -77,5 +85,18 @@ public class HttpUtil {
                 .url(address)
                 .build();
         client.newCall(request).enqueue(callback);
+    }
+
+    // 查看是否有网络
+    private static boolean isNetworkAvailable(){
+        // 取得系统服务类
+//        ConnectivityManager connectionManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+//        NetworkInfo networkInfo = connectionManager.getActiveNetworkInfo();
+//        if (networkInfo != null && networkInfo.isAvailable()) {
+//            Toast.makeText(MyApplication.getContext(), "network is available", Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(MyApplication.getContext(), "network is unavailable", Toast.LENGTH_SHORT).show();
+//        }
+        return true;
     }
 }
