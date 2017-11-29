@@ -7,6 +7,7 @@ import android.os.IBinder;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.demon.mydemo.R;
 import com.example.demon.mydemo.util.BaseActivity;
@@ -51,6 +52,8 @@ public class ServiceTextActivity extends BaseActivity implements View.OnClickLis
         findViewById(R.id.unbind_service).setOnClickListener(this);
         findViewById(R.id.start_intent_service).setOnClickListener(this);
         findViewById(R.id.download_bt).setOnClickListener(this);
+        findViewById(R.id.start_alarm_bt).setOnClickListener(this);
+        findViewById(R.id.stop_alarm_id).setOnClickListener(this);
 
     }
 
@@ -86,6 +89,14 @@ public class ServiceTextActivity extends BaseActivity implements View.OnClickLis
             case R.id.download_bt:
                 Intent intent = new Intent(ServiceTextActivity.this, DownloadActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.start_alarm_bt:
+                Intent alarmStartIntent = new Intent(this, LongRunningService.class);
+                startService(alarmStartIntent);
+                break;
+            case R.id.stop_alarm_id:
+                Intent alarmStopIntent = new Intent(this, LongRunningService.class);
+                stopService(alarmStopIntent);
                 break;
 
             default:

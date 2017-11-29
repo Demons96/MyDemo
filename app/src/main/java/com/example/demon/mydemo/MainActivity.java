@@ -27,7 +27,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         // 获取程序销毁时保存的重要数据
         if (savedInstanceState != null) {
             String data = savedInstanceState.getString("out_data");
-            LogUtil.d(TAG, data);
+            Toast.makeText(this, "主活动数据恢复"+data, Toast.LENGTH_SHORT).show();
+            LogUtil.d(TAG, "主活动数据恢复"+data);
         }
         Toast.makeText(MainActivity.this, "程序开启啦", Toast.LENGTH_SHORT).show();
 

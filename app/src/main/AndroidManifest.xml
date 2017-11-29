@@ -98,6 +98,7 @@
             <!-- <action android:name="com.example.demon.mydemo.broadcast.MY_BROADCAST"/> -->
             <!-- </intent-filter> -->
 
+
             <!-- 有序广播 -->
             <intent-filter android:priority="100">
                 <action android:name="com.example.demon.mydemo.MY_BROADCAST"/>
@@ -191,14 +192,30 @@
             android:name=".materialDesign.FruitActivity"
             android:theme="@style/FruitActivityTheme">
         </activity>
-        <activity
-            android:name=".activity.LoginActivity">
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".service.LongRunningService"
+            android:enabled="false"
+            android:exported="true">
+        </service>
+
+        <activity android:name=".weather.WeatherMainActivity">
+        </activity>
+        <activity android:name=".weather.WeatherActivity">
+        </activity>
+
+        <service
+            android:name=".weather.servive.AutoUpdateService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>

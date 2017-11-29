@@ -2,6 +2,7 @@ package com.example.demon.mydemo.service;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.widget.Toast;
 
 import com.example.demon.mydemo.util.LogUtil;
 
@@ -30,5 +31,6 @@ public class IntentServiceTest extends IntentService {
     public void onDestroy() {
         super.onDestroy();
         LogUtil.d(TAG, "onDestroy executed");
+        Toast.makeText(this, "onDestroy executed", Toast.LENGTH_SHORT).show();
     }
 }

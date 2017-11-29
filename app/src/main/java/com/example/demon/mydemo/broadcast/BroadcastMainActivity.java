@@ -24,7 +24,7 @@ import com.example.demon.mydemo.util.LogUtil;
  */
 public class BroadcastMainActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = "BroadcastMainActivity";
-    private NetworkChangeReceiver networkChangeReceiver = null; //网络广播
+    private NetworkChangeReceiver networkChangeReceiver = null; //标准动态广播（网络）
     private LocalReceiver localReceiver = null;        //本地广播
     private LocalBroadcastManager localBroadcastManager = null;    //本地广播管理
 
@@ -41,22 +41,6 @@ public class BroadcastMainActivity extends BaseActivity implements View.OnClickL
         findViewById(R.id.remove_local_broadcast_bt).setOnClickListener(this);  //关闭本地广播
         findViewById(R.id.send_local_broadcast_bt).setOnClickListener(this);    //发送广播
         findViewById(R.id.force_offline_bt).setOnClickListener(this);    //强制下线广播
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (networkChangeReceiver != null) {
-            unregisterReceiver(networkChangeReceiver);  // 动态注册的广播一定要取消注册
-            networkChangeReceiver = null;
-            LogUtil.d(TAG, "监听网络广播自动取消注册");
-        }
-        if ((localReceiver != null) && (localBroadcastManager != null)) {
-            localBroadcastManager.unregisterReceiver(localReceiver);
-            localReceiver = null;
-            localBroadcastManager = null;
-            LogUtil.d(TAG, "本地广播自动取消注册");
-        }
     }
 
     @Override
@@ -78,7 +62,7 @@ public class BroadcastMainActivity extends BaseActivity implements View.OnClickL
                     LogUtil.d(TAG, "无广播可移除");
                 }
                 break;
-            case R.id.send_normal_broadcast_bt:    //发送自定义标准广播
+            case R.id.send_normal_broadcast_bt:    //发送自定义静态标准广播
                 Intent intent1 = new Intent("com.example.demon.mydemo.MY_BROADCAST");
                 sendBroadcast(intent1);
                 break;
@@ -139,6 +123,22 @@ public class BroadcastMainActivity extends BaseActivity implements View.OnClickL
         @Override
         public void onReceive(Context context, Intent intent) {
             Toast.makeText(context, "received local broadcast", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (networkChangeReceiver != null) {
+            unregisterReceiver(networkChangeReceiver);  // 动态注册的广播一定要取消注册
+            networkChangeReceiver = null;
+            LogUtil.d(TAG, "监听网络广播自动取消注册");
+        }
+        if ((localReceiver != null) && (localBroadcastManager != null)) {
+            localBroadcastManager.unregisterReceiver(localReceiver);
+            localReceiver = null;
+            localBroadcastManager = null;
+            LogUtil.d(TAG, "本地广播自动取消注册");
         }
     }
 

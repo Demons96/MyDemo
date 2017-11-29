@@ -150,6 +150,12 @@
         app:layout_widthPercent="49%"
         app:layout_heightPercent="18%">
 
+        <Button
+            android:id="@+id/weather_bt"
+            android:text="天气"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
     <LinearLayout

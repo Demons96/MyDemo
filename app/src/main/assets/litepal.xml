@@ -2,10 +2,14 @@
 <litepal>
     <dbname value="BookStoreLitePal" ></dbname>
 
-    <version value="2" ></version>
+    <version value="3" ></version>
 
     <list>
         <mapping class="com.example.demon.mydemo.storage.BookLitePal"></mapping>
         <mapping class="com.example.demon.mydemo.storage.CategoryLitePal"></mapping>
+
+        <mapping class="com.example.demon.mydemo.weather.db.Province"></mapping>
+        <mapping class="com.example.demon.mydemo.weather.db.City"></mapping>
+        <mapping class="com.example.demon.mydemo.weather.db.County"></mapping>
     </list>
 </litepal>

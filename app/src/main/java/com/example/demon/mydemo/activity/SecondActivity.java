@@ -29,6 +29,7 @@ import com.example.demon.mydemo.storage.StorageMainActivity;
 import com.example.demon.mydemo.util.BaseActivity;
 import com.example.demon.mydemo.view.ListViewTest;
 import com.example.demon.mydemo.view.RecyclerViewTest;
+import com.example.demon.mydemo.weather.WeatherMainActivity;
 
 public class SecondActivity extends BaseActivity implements View.OnClickListener {
 
@@ -54,6 +55,7 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
         findViewById(R.id.media_bt).setOnClickListener(this);
         findViewById(R.id.location_test_bt).setOnClickListener(this);
         findViewById(R.id.material_design_bt).setOnClickListener(this);
+        findViewById(R.id.weather_bt).setOnClickListener(this);
 
     }
 
@@ -110,6 +112,9 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
                 break;
             case R.id.material_design_bt:
                 MyStartActivity(MaterialDesignActivity.class);
+                break;
+            case R.id.weather_bt:
+                MyStartActivity(WeatherMainActivity.class);
                 break;
 
             default:
