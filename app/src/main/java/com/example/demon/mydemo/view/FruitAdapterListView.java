@@ -19,7 +19,7 @@ import java.util.List;
  */
 
 public class FruitAdapterListView extends ArrayAdapter<Fruit> {
-    private int resourceId;
+    private int resourceId; // 资源id
 
     public FruitAdapterListView(Context context, int textViewResourceId, List<Fruit> objects) {
         // 上下文，ListView子布局id，数据

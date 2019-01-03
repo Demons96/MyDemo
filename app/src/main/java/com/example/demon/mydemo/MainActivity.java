@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (getSupportActionBar() != null) getSupportActionBar().hide();  //隐藏标题栏
+//        if (getSupportActionBar() != null) getSupportActionBar().hide();  //隐藏标题栏
 
         // 获取程序销毁时保存的重要数据
         if (savedInstanceState != null) {

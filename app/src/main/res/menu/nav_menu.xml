@@ -24,4 +24,15 @@
             android:icon="@drawable/nav_task"
             android:title="Tasks"/>
     </group>
+
+    <item android:title="其他">
+        <menu>
+            <item
+                android:icon="@drawable/nav_task"
+                android:title="设置"/>
+            <item
+                android:icon="@drawable/nav_task"
+                android:title="关于我们"/>
+        </menu>
+    </item>
 </menu>
