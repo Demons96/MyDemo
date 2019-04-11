@@ -1,10 +1,8 @@
 package com.example.demon.mydemo.activity;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -18,7 +16,7 @@ import com.example.demon.mydemo.util.BaseActivity;
 /**
  * 登录
  */
-public class LoginActivity extends BaseActivity implements View.OnClickListener{
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
     static private User user = new User();
     private SharedPreferences pref;     // 读
     private SharedPreferences.Editor editor;    // 写
@@ -26,6 +24,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
     private EditText passwordEdit;  //密码
 
     private CheckBox rememberPass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +70,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         }
     }
 
-    private void startMain(User u){
+    private void startMain(User u) {
         MainActivity.actionStart(LoginActivity.this, u);
         finish();
     }
